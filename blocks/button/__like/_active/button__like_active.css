@@ -1,0 +1,12 @@
+.button__like_active {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../../../../images/like_active.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 19px;
+    align-self: center;
+}

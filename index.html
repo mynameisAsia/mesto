@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Место</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <img src="./images/logo.svg" alt="Лого" class="header__logo">
+            <img src="./images/line.svg" alt="Линия" class="header__line">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img src="./images/avatar.jpg" alt="Ава" class="profile__avatar">
+                    <div class="profile__container">
+                        <div class="profile__info">
+                            <h1 class="profile__name">Жак-Ив Кусто</h1>
+                            <button type="button" class="button__edit"></button>
+                        </div>
+                        <p class="profile__description">Исследователь океана</p>
+                    </div>
+                    <button type="button" class="button__add"></button>
+            </section>
+            <section class="popup">
+                <div class="popup__container">
+                    <div class="popup__content">
+                        <h2 class="popup__title">Редактировать профиль</h2>
+                        <form action="" class="popup__form">
+                            <input type="text" id="name" name="firstname" class="popup__firstname" placeholder="Имя" value="Жак-Ив Кусто">
+                            <input type="text" id="description" name="description" class="popup__job" placeholder="Описание" value="Исследователь океана">
+                            <button type="submit" class="button__save" value="Сохранить">Сохранить</button>
+                            <button type="button" class="button__close"></button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section class="photos">
+                <ul class="photos__list">
+                    <li class="photos__card">
+                        <img src="./images/atlantic-ocean.jpg" alt="Атлантический океан" class="photos__item">
+                        <div class="photos__like-container">
+                            <p class="photos__title">Атлантический океан</p>
+                            <button class="button__like"></button>
+                        </div>
+                    </li>
+                    <li class="photos__card">
+                        <img src="./images/jeanne-darc-ship.jpg" alt="Корабль Жанна д'Арк" class="photos__item">
+                        <div class="photos__like-container">
+                            <p class="photos__title">Корабль Жанна д'Арк</p>
+                            <button class="button__like"></button>
+                        </div>
+                    </li>
+                    <li class="photos__card">
+                        <img src="./images/antarctica.jpg" alt="Антарктида" class="photos__item">
+                        <div class="photos__like-container">
+                            <p class="photos__title">Антарктида</p>
+                            <button class="button__like"></button>
+                        </div>
+                    </li>
+                    <li class="photos__card">
+                        <img src="./images/amazon-river.jpg" alt="Амазонка" class="photos__item">
+                        <div class="photos__like-container">
+                            <p class="photos__title">Амазонка</p>
+                            <button class="button__like"></button>
+                        </div>
+                    </li>
+                    <li class="photos__card">
+                        <img src="./images/new-york.jpg" alt="Нью-Йорк" class="photos__item">
+                        <div class="photos__like-container">
+                            <p class="photos__title">Нью-Йорк</p>
+                            <button class="button__like"></button>
+                        </div>
+                    </li>
+                    <li class="photos__card">
+                        <img src="./images/saint-andre.jpg" alt="Сент-Андре-Де-Кюбзак" class="photos__item">
+                        <div class="photos__like-container">
+                            <p class="photos__title">Сент-Андре-Де-Кюбзак</p>
+                            <button class="button__like"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__сopyright">&copy; 2022 Mesto Russia</p>
+        </footer>
+    </div>
+<script src="./scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.button__save {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-color: transparent;
+    border-radius: 2px;
+    max-width: 358px;
+    width: 100%;
+    height: 50px;
+    margin-top: 48px;
+    margin-left: 36px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+
+.button__save:hover {
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 540px) {
+    .button__save {
+        margin-top: 45px;
+        margin-left: 22px;
+        max-width: 238px;
+    }
+}
