@@ -1,17 +1,8 @@
 .button__add {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
     background-image: url(../../../images/add-button.svg);
-    background-color: transparent;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-color: transparent;
     width: 150px;
     height: 50px;
-    cursor: pointer;
-    opacity: 1;
 }
 
 .button__add:hover {

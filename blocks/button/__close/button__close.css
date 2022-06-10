@@ -1,15 +1,10 @@
 .button__close {
     background-image: url(../../../images/close-button.svg);
-    background-color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-color: transparent;
     width: 32px;
     height: 32px;
     position: absolute;
     top: -35px;
     right: -35px;
-    cursor: pointer;
 }
 
 .button__close:hover {

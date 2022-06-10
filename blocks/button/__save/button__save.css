@@ -1,8 +1,4 @@
 .button__save {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-color: transparent;
     border-radius: 2px;
     max-width: 358px;
     width: 100%;
@@ -11,7 +7,6 @@
     margin-left: 36px;
     background-color: #000000;
     color: white;
-    cursor: pointer;
 }
 
 .button__save:hover {
