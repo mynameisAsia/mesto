@@ -21,9 +21,6 @@
 .popup__firstname::-ms-input-placeholder {
     color:#000000;
 }
-.popup__firstname::-webkit-input-placeholder {
-    color:#000000;
-}
 .popup__firstname::placeholder {
     color:#000000;
 }

@@ -17,9 +17,6 @@
 .popup__job::-ms-input-placeholder {
     color:#000000;
 }
-.popup__job::-webkit-input-placeholder {
-    color:#000000;
-}
 .popup__job::placeholder {
     color:#000000;
 }
