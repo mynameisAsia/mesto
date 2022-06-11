@@ -1,4 +1,4 @@
-.footer__сopyright {
+.сopyright {
     margin: 0;
     color: #545454;
     font-size: 18px;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 355px) {
-    .footer__сopyright {
+    .сopyright {
         margin-left: 19px;
     }
 }
