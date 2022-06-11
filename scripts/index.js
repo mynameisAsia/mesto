@@ -1,7 +1,7 @@
-const editBtn = document.querySelector('.button__edit');
+const editBtn = document.querySelector('.button_edit');
 const popUp = document.querySelector('.popup');
-const closeBtn = document.querySelector('.button__close');
-const likeBtns = document.querySelectorAll('.button__like');
+const closeBtn = document.querySelector('.button_close');
+const likeBtns = document.querySelectorAll('.button_like');
 const formElement = document.querySelector('.popup__form');
 const nameInput = document.querySelector('.popup__firstname');
 const jobInput = document.querySelector('.popup__job');
@@ -23,7 +23,7 @@ for (const likeBtn of likeBtns) {
 }
 
 function addLike(event) {
-    event.target.classList.toggle('button__like_active');
+    event.target.classList.toggle('button_like_active');
 }
 
 function formSubmitHandler (evt) {

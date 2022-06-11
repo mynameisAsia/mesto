@@ -1,10 +1,10 @@
-.button__like {
+.button_like {
     background-image: url(../../../images/like.svg);
     align-self: center;
     width: 22px;
     height: 19px;
 }
 
-.button__like:hover {
+.button_like:hover {
     opacity: 0.5;
 }
