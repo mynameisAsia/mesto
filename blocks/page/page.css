@@ -2,7 +2,8 @@
     background-color: #000000;
     max-width: 100%;
     min-width: 320px;
-    overflow: hidden;
+    margin: 0;
+    overflow-x: hidden;
     font-family: 'Inter', Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

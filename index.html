@@ -11,29 +11,28 @@
     <div class="page">
         <header class="header">
             <img src="./images/logo.svg" alt="Лого" class="header__logo">
-            <img src="./images/line.svg" alt="Линия" class="header__line">
         </header>
         <main class="content">
             <section class="profile">
                 <img src="./images/avatar.jpg" alt="Ава" class="profile__avatar">
-                    <div class="profile__container">
-                        <div class="profile__info">
-                            <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <button type="button" class="button button_edit"></button>
-                        </div>
-                        <p class="profile__description">Исследователь океана</p>
+                <div class="profile__container"> <!-- Здравствуйте! Я понимаю, что не должно быть лишних дивов, но в чеклисте написано, что это приемлемо, если это нужно для выравнивания. В этом случае, я не нашла другого выхода, чтобы расположить кнопку редактирования рядом с названием профиля-->
+                    <div class="profile__info">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button type="button" class="button button_theme_edit" aria-label="Редактировать"></button>
                     </div>
-                    <button type="button" class="button button_add"></button>
+                    <p class="profile__description">Исследователь океана</p>
+                </div>
+                <button type="button" class="button button_theme_add" aria-label="Добавить"></button>
             </section>
             <section class="popup">
                 <div class="popup__container">
                     <div class="popup__content">
                         <h2 class="popup__title">Редактировать профиль</h2>
-                        <form class="popup__form">
-                            <input type="text" id="name" name="firstname" class="popup__firstname" placeholder="Имя" value="Жак-Ив Кусто" contenteditable="true">
-                            <input type="text" id="description" name="description" class="popup__job" placeholder="Описание" value="Исследователь океана" contenteditable="true">
-                            <button type="submit" class="button button_save" value="Сохранить">Сохранить</button>
-                            <button type="button" class="button button_close"></button>
+                        <form class="popup__form" name="edit-form">
+                            <input type="text" id="name" name="firstname" class="popup__input popup__input_type_firstname" placeholder="Имя" value="Жак-Ив Кусто" contenteditable="true">
+                            <input type="text" id="description" name="description" class="popup__input popup__input_type_job" placeholder="Описание" value="Исследователь океана" contenteditable="true">
+                            <button type="submit" class="button button_theme_save" value="Сохранить">Сохранить</button>
+                            <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
                         </form>
                     </div>
                 </div>
@@ -43,43 +42,43 @@
                     <li class="photos__card">
                         <img src="./images/atlantic-ocean.jpg" alt="Атлантический океан" class="photos__item">
                         <div class="photos__like-container">
-                            <p class="photos__title">Атлантический океан</p>
-                            <button class="button button_like"></button>
+                            <h3 class="photos__title">Атлантический океан</h3>
+                            <button class="button button_theme_like" aria-label="Лайк"></button>
                         </div>
                     </li>
                     <li class="photos__card">
                         <img src="./images/jeanne-darc-ship.jpg" alt="Корабль Жанна д'Арк" class="photos__item">
                         <div class="photos__like-container">
-                            <p class="photos__title">Корабль Жанна д'Арк</p>
-                            <button class="button button_like"></button>
+                            <h3 class="photos__title">Корабль Жанна д'Арк</h3>
+                            <button class="button button_theme_like" aria-label="Лайк"></button>
                         </div>
                     </li>
                     <li class="photos__card">
                         <img src="./images/antarctica.jpg" alt="Антарктида" class="photos__item">
                         <div class="photos__like-container">
-                            <p class="photos__title">Антарктида</p>
-                            <button class="button button_like"></button>
+                            <h3 class="photos__title">Антарктида</h3>
+                            <button class="button button_theme_like" aria-label="Лайк"></button>
                         </div>
                     </li>
                     <li class="photos__card">
                         <img src="./images/amazon-river.jpg" alt="Амазонка" class="photos__item">
                         <div class="photos__like-container">
-                            <p class="photos__title">Амазонка</p>
-                            <button class="button button_like"></button>
+                            <h3 class="photos__title">Амазонка</h3>
+                            <button class="button button_theme_like" aria-label="Лайк"></button>
                         </div>
                     </li>
                     <li class="photos__card">
                         <img src="./images/new-york.jpg" alt="Нью-Йорк" class="photos__item">
                         <div class="photos__like-container">
-                            <p class="photos__title">Нью-Йорк</p>
-                            <button class="button button_like"></button>
+                            <h3 class="photos__title">Нью-Йорк</h3>
+                            <button class="button button_theme_like" aria-label="Лайк"></button>
                         </div>
                     </li>
                     <li class="photos__card">
                         <img src="./images/saint-andre.jpg" alt="Сент-Андре-Де-Кюбзак" class="photos__item">
                         <div class="photos__like-container">
-                            <p class="photos__title">Сент-Андре-Де-Кюбзак</p>
-                            <button class="button button_like"></button>
+                            <h3 class="photos__title">Сент-Андре-Де-Кюбзак</h3>
+                            <button class="button button_theme_like" aria-label="Лайк"></button>
                         </div>
                     </li>
                 </ul>

@@ -1,0 +1,10 @@
+.button_theme_like {
+    background-image: url(../../../../images/like.svg);
+    align-self: center;
+    width: 22px;
+    height: 19px;
+}
+
+.button_theme_like:hover {
+    opacity: 0.5;
+}

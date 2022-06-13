@@ -1,0 +1,21 @@
+.button_theme_close {
+    background-image: url(../../../../images/close-button.svg);
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: -35px;
+    right: -35px;
+}
+
+.button_theme_close:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 540px) {
+    .button_theme_close {
+        top: -30px;
+        right: 0;
+        width: 20px;
+        height: 20px;
+    }
+}

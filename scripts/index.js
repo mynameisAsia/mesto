@@ -1,29 +1,21 @@
-const editBtn = document.querySelector('.button_edit');
+const editBtn = document.querySelector('.button_theme_edit');
 const popUp = document.querySelector('.popup');
-const closeBtn = document.querySelector('.button_close');
-const likeBtns = document.querySelectorAll('.button_like');
+const closeBtn = document.querySelector('.button_theme_close');
 const formElement = document.querySelector('.popup__form');
-const nameInput = document.querySelector('.popup__firstname');
-const jobInput = document.querySelector('.popup__job');
+const nameInput = document.querySelector('.popup__input_type_firstname');
+const jobInput = document.querySelector('.popup__input_type_job');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 
-editBtn.addEventListener('click', function(event) {
-    event.preventDefault();
+editBtn.addEventListener('click', openPopup);
+closeBtn.addEventListener('click', closePopup);
+
+function openPopup() {
     popUp.classList.add('popup_opened');
-})
-
-closeBtn.addEventListener('click', () => {
-    popUp.classList.remove('popup_opened');
-})
-
-
-for (const likeBtn of likeBtns) {
-    likeBtn.addEventListener('click', addLike);
 }
 
-function addLike(event) {
-    event.target.classList.toggle('button_like_active');
+function closePopup() {
+    popUp.classList.remove('popup_opened');
 }
 
 function formSubmitHandler (evt) {
