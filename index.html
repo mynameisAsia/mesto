@@ -15,7 +15,7 @@
         <main class="content">
             <section class="profile">
                 <img src="./images/avatar.jpg" alt="Ава" class="profile__avatar">
-                <div class="profile__container"> <!-- Здравствуйте! Я понимаю, что не должно быть лишних дивов, но в чеклисте написано, что это приемлемо, если это нужно для выравнивания. В этом случае, я не нашла другого выхода, чтобы расположить кнопку редактирования рядом с названием профиля-->
+                <div class="profile__container">
                     <div class="profile__info">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
                         <button type="button" class="button button_theme_edit" aria-label="Редактировать"></button>
@@ -25,16 +25,14 @@
                 <button type="button" class="button button_theme_add" aria-label="Добавить"></button>
             </section>
             <section class="popup">
-                <div class="popup__container">
-                    <div class="popup__content">
-                        <h2 class="popup__title">Редактировать профиль</h2>
-                        <form class="popup__form" name="edit-form">
+                <div class="popup__content">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <form class="popup__form" name="edit-form">
                             <input type="text" id="name" name="firstname" class="popup__input popup__input_type_firstname" placeholder="Имя" value="Жак-Ив Кусто" contenteditable="true">
                             <input type="text" id="description" name="description" class="popup__input popup__input_type_job" placeholder="Описание" value="Исследователь океана" contenteditable="true">
                             <button type="submit" class="button button_theme_save" value="Сохранить">Сохранить</button>
                             <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </section>
             <section class="photos">
