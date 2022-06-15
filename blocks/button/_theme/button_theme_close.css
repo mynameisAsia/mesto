@@ -3,8 +3,8 @@
     width: 32px;
     height: 32px;
     position: absolute;
-    top: -35px;
-    right: -35px;
+    top: -40px;
+    right: -40px;
 }
 
 .button_theme_close:hover {
@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 540px) {
     .button_theme_close {
-        top: -35px;
+        top: -40px;
         right: 0;
         width: 20px;
         height: 20px;

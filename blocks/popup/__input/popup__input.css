@@ -31,7 +31,7 @@
 
 @media screen and (max-width: 540px) {
     .popup__input {
-        margin-left: 22px;
+        margin: 40px 0 0 22px;
         max-width: 238px;
     }
     .popup__input:first-of-type {
