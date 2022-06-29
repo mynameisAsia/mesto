@@ -1,8 +1,8 @@
 .button_theme_like {
     background-image: url(../../../images/like.svg);
     align-self: center;
-    width: 22px;
-    height: 19px;
+    width: 24px;
+    height: 21px;
 }
 
 .button_theme_like:hover {

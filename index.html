@@ -24,67 +24,93 @@
                 </div>
                 <button type="button" class="button button_theme_add" aria-label="Добавить"></button>
             </section>
-            <div class="popup">
+            <div class="popup popup_theme_edit">
                 <div class="popup__content">
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <form class="popup__form" name="edit-form">
                         <input type="text" id="name" name="firstname" class="popup__input popup__input_type_firstname" placeholder="Имя" value="Жак-Ив Кусто" contenteditable="true">
                         <input type="text" id="description" name="description" class="popup__input popup__input_type_job" placeholder="Описание" value="Исследователь океана" contenteditable="true">
                         <button type="submit" class="button button_theme_save" value="Сохранить">Сохранить</button>
-                        <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
                     </form>
+                    <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
+                </div>
+            </div>
+            <div class="popup popup_theme_add">
+                <div class="popup__content">
+                    <h2 class="popup__title">Новое место</h2>
+                    <form class="popup__form-add" name="add-form">
+                        <input type="text" id="title" name="title" class="popup__input popup__input_type_name" placeholder="Название" value="" contenteditable="true">
+                        <input type="text" id="link" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка" value="" contenteditable="true">
+                        <button type="submit" class="button button_theme_save" value="Сохранить">Создать</button>
+                    </form>
+                    <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
+                </div>
+            </div>
+            <div class="popup popup_theme_image">
+                <div class="popup__image-container">
+                    <img src="" alt="" class="popup__image">
+                    <h3 class="popup__image-title"></h3>
+                    <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
                 </div>
             </div>
             <section class="photos">
                 <ul class="photos__list">
-                    <li class="photos__card">
-                        <img src="./images/atlantic-ocean.jpg" alt="Атлантический океан" class="photos__item">
-                        <div class="photos__like-container">
-                            <h3 class="photos__title">Атлантический океан</h3>
-                            <button class="button button_theme_like" aria-label="Лайк"></button>
-                        </div>
-                    </li>
-                    <li class="photos__card">
-                        <img src="./images/jeanne-darc-ship.jpg" alt="Корабль Жанна д'Арк" class="photos__item">
-                        <div class="photos__like-container">
-                            <h3 class="photos__title">Корабль Жанна д'Арк</h3>
-                            <button class="button button_theme_like" aria-label="Лайк"></button>
-                        </div>
-                    </li>
-                    <li class="photos__card">
-                        <img src="./images/antarctica.jpg" alt="Антарктида" class="photos__item">
-                        <div class="photos__like-container">
-                            <h3 class="photos__title">Антарктида</h3>
-                            <button class="button button_theme_like" aria-label="Лайк"></button>
-                        </div>
-                    </li>
-                    <li class="photos__card">
-                        <img src="./images/amazon-river.jpg" alt="Амазонка" class="photos__item">
-                        <div class="photos__like-container">
-                            <h3 class="photos__title">Амазонка</h3>
-                            <button class="button button_theme_like" aria-label="Лайк"></button>
-                        </div>
-                    </li>
-                    <li class="photos__card">
-                        <img src="./images/new-york.jpg" alt="Нью-Йорк" class="photos__item">
-                        <div class="photos__like-container">
-                            <h3 class="photos__title">Нью-Йорк</h3>
-                            <button class="button button_theme_like" aria-label="Лайк"></button>
-                        </div>
-                    </li>
-                    <li class="photos__card">
-                        <img src="./images/saint-andre.jpg" alt="Сент-Андре-Де-Кюбзак" class="photos__item">
-                        <div class="photos__like-container">
-                            <h3 class="photos__title">Сент-Андре-Де-Кюбзак</h3>
-                            <button class="button button_theme_like" aria-label="Лайк"></button>
-                        </div>
-                    </li>
                 </ul>
             </section>
         </main>
         <footer class="footer">
             <p class="сopyright">&copy; 2022 Mesto Russia</p>
         </footer>
+        <template id="photos__template">
+            <li class="photos__card">
+                <img src="" alt="" class="photos__item">
+                <button type="button" class="button button_theme_delete"></button>
+                <div class="photos__like-container">
+                    <h3 class="photos__title">Атлантический океан</h3>
+                    <button class="button button_theme_like" aria-label="Лайк"></button>
+                </div>
+            </li>
+            <li class="photos__card">
+                <img src="./images/jeanne-darc-ship.jpg" alt="Корабль Жанна д'Арк" class="photos__item">
+                <button type="button" class="button button_theme_delete"></button>
+                <div class="photos__like-container">
+                    <h3 class="photos__title">Корабль Жанна д'Арк</h3>
+                    <button class="button button_theme_like" aria-label="Лайк"></button>
+                </div>
+            </li>
+            <li class="photos__card">
+                <img src="./images/antarctica.jpg" alt="Антарктида" class="photos__item">
+                <button type="button" class="button button_theme_delete"></button>
+                <div class="photos__like-container">
+                    <h3 class="photos__title">Антарктида</h3>
+                    <button class="button button_theme_like" aria-label="Лайк"></button>
+                </div>
+            </li>
+            <li class="photos__card">
+                <img src="./images/amazon-river.jpg" alt="Амазонка" class="photos__item">
+                <button type="button" class="button button_theme_delete"></button>
+                <div class="photos__like-container">
+                    <h3 class="photos__title">Амазонка</h3>
+                    <button class="button button_theme_like" aria-label="Лайк"></button>
+                </div>
+            </li>
+            <li class="photos__card">
+                <img src="./images/new-york.jpg" alt="Нью-Йорк" class="photos__item">
+                <button type="button" class="button button_theme_delete"></button>
+                <div class="photos__like-container">
+                    <h3 class="photos__title">Нью-Йорк</h3>
+                    <button class="button button_theme_like" aria-label="Лайк"></button>
+                </div>
+            </li>
+            <li class="photos__card">
+                <img src="./images/saint-andre.jpg" alt="Сент-Андре-Де-Кюбзак" class="photos__item">
+                <button type="button" class="button button_theme_delete"></button>
+                <div class="photos__like-container">
+                    <h3 class="photos__title">Сент-Андре-Де-Кюбзак</h3>
+                    <button class="button button_theme_like" aria-label="Лайк"></button>
+                </div>
+            </li>
+        </template>
     </div>
 <script src="./scripts/index.js"></script>
 </body>
