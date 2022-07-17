@@ -3,9 +3,9 @@ const popupProfileEdit = document.querySelector('.popup_theme_edit');
 const popupAddPhoto = document.querySelector('.popup_theme_add');
 const imagePopup = document.querySelector('.popup_theme_image');
 const buttonEdit = document.querySelector('.button_theme_edit');
-const buttonCloseProfile = document.querySelector('.button__close-profile');
-const buttonCloseAddForm = document.querySelector('.button__close-adding');
-const buttonCloseImage = document.querySelector('.button__close-image');
+const buttonCloseProfile = document.querySelector('.button_theme_close-profile');
+const buttonCloseAddForm = document.querySelector('.button_theme_close-adding');
+const buttonCloseImage = document.querySelector('.button_theme_close-image');
 const buttonAdd = document.querySelector('.button_theme_add');
 const formEditElement = document.querySelector('.popup__form-edit');
 const nameInput = document.querySelector('.popup__input_type_firstname');
@@ -20,7 +20,7 @@ const list = document.querySelector('.photos__list');
 const photoItem = document.querySelector('.popup__image');
 const photoTitle = document.querySelector('.popup__image-title');
 const contentOfPopups = document.querySelectorAll('.popup__content');
-const buttonElement = document.querySelector('.button__create');
+const buttonElement = document.querySelector('.button_theme_save-card');
 
 const createCard = (link, name) => {
   const newCard = cardsTemplate.querySelector('.photos__card').cloneNode(true);
