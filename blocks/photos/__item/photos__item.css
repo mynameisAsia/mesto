@@ -1,5 +1,6 @@
 .photos__item {
     max-width: 282px;
+    min-height: 282px;
     height: 282px;
     width: 100%;
     object-fit: cover;

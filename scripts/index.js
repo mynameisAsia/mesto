@@ -3,9 +3,11 @@ const popupProfileEdit = document.querySelector('.popup_theme_edit');
 const popupAddPhoto = document.querySelector('.popup_theme_add');
 const imagePopup = document.querySelector('.popup_theme_image');
 const buttonEdit = document.querySelector('.button_theme_edit');
-const closeBtns = document.querySelectorAll('.button_theme_close');
+const buttonCloseProfile = document.querySelector('.button__close-profile');
+const buttonCloseAddForm = document.querySelector('.button__close-adding');
+const buttonCloseImage = document.querySelector('.button__close-image');
 const buttonAdd = document.querySelector('.button_theme_add');
-const formElement = document.querySelector('.popup__form');
+const formEditElement = document.querySelector('.popup__form-edit');
 const nameInput = document.querySelector('.popup__input_type_firstname');
 const jobInput = document.querySelector('.popup__input_type_job');
 const profileName = document.querySelector('.profile__name');
@@ -18,7 +20,7 @@ const list = document.querySelector('.photos__list');
 const photoItem = document.querySelector('.popup__image');
 const photoTitle = document.querySelector('.popup__image-title');
 const contentOfPopups = document.querySelectorAll('.popup__content');
-const buttonElements = Array.from(document.querySelectorAll('.button_theme_save'));
+const buttonElement = document.querySelector('.button__create');
 
 const createCard = (link, name) => {
   const newCard = cardsTemplate.querySelector('.photos__card').cloneNode(true);
@@ -28,10 +30,8 @@ const createCard = (link, name) => {
   newImage.alt = name;
   newTitle.textContent = name;
 
-  const likeBtns = newCard.querySelectorAll('.button_theme_like');
-  for (const likeBtn of likeBtns) {
-    likeBtn.addEventListener('click', addLike);
-  }
+  const likeBtn = newCard.querySelector('.button_theme_like');
+  likeBtn.addEventListener('click', addLike);
   
   const buttonDelete = newCard.querySelector('.button_theme_delete');
   buttonDelete.addEventListener('click', deletePhoto);
@@ -42,10 +42,10 @@ const createCard = (link, name) => {
 
   return newCard;
 }
-
+/*
 const renderCard = () => {
   list.prepend(createCard());
-}
+}*/
 
 initialCards.forEach(function(element) {
   list.prepend(createCard(element.link, element.name));
@@ -56,16 +56,9 @@ const openPopup = (popup) => {
   document.addEventListener('keydown', handleEscClose);
 }
 
-const closePopup = () => {
-  for (const popUp of popUps) {
-    popUp.classList.remove('popup_opened');
-    popUp.addEventListener('click', closePopup);
-    document.removeEventListener('keydown', handleEscClose);
-  }
-  for (contentOfPopup of contentOfPopups) {
-    contentOfPopup.addEventListener('click', (evt) => {
-      evt.stopPropagation();
-    })}
+const closePopup = (popup) => {
+  popup.classList.remove('popup_opened'); 
+  document.removeEventListener('keydown', handleEscClose);
 }
 
 function handleEscClose (evt) {
@@ -74,6 +67,16 @@ function handleEscClose (evt) {
 }
 }
 
+function handleOverlayClose() {
+  const popupList = Array.from(document.querySelectorAll('.popup'));
+  popupList.forEach((popupElement) => {
+    const popupOverlay = popupElement.querySelector('.popup__overlay');
+    popupOverlay.addEventListener('click', () => closePopup(popupElement));
+  })
+}
+
+handleOverlayClose();
+
 const handleEditPopup = () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileDescription.textContent;
@@ -81,24 +84,29 @@ const handleEditPopup = () => {
 }
 
 const handleAddPopup = () => {
-  buttonElements.forEach((buttonElement) => {
-    buttonElement.classList.add('button_invalid');
-    buttonElement.setAttribute('disabled', '');
-  })
+  buttonElement.classList.add('button_invalid');
+  buttonElement.setAttribute('disabled', '');
   openPopup(popupAddPhoto);
 }
 
 function handleImagePopup(link, name) {
   photoItem.src = link;
+  photoItem.alt = name;
   photoTitle.textContent = name;
   openPopup(imagePopup);
 }
 
 buttonEdit.addEventListener('click', handleEditPopup);
 buttonAdd.addEventListener('click', handleAddPopup);
-for (const closeBtn of closeBtns) {
-  closeBtn.addEventListener('click', closePopup);
-}
+buttonCloseProfile.addEventListener('click', () => { 
+  closePopup(popupProfileEdit)
+});
+buttonCloseAddForm.addEventListener('click', () => {
+  closePopup(popupAddPhoto);
+});
+buttonCloseImage.addEventListener('click', () => {
+  closePopup(imagePopup);
+});
 
 function addLike(evt) {
   evt.target.classList.toggle('button_active');
@@ -115,7 +123,7 @@ function handleEditFormSubmit (evt) {
     closePopup(popupProfileEdit);
 }
 
-formElement.addEventListener('submit', handleEditFormSubmit); 
+formEditElement.addEventListener('submit', handleEditFormSubmit); 
 
 function handleAddFormSubmit(evt) {
   evt.preventDefault();

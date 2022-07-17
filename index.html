@@ -25,19 +25,21 @@
                 <button type="button" class="button button_theme_add" aria-label="Добавить"></button>
             </section>
             <div class="popup popup_theme_edit">
+                <div class="popup__overlay"></div>
                 <div class="popup__content">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <form class="popup__form" name="edit-form">
+                    <form class="popup__form popup__form-edit" name="edit-form">
                         <input type="text" id="name" name="firstname" class="popup__input popup__input_type_firstname" placeholder="Имя" value="Жак-Ив Кусто" contenteditable="true" minlength="2" maxlength="40" required>
                         <span id="name-error" class="error"></span>
                         <input type="text" id="description" name="description" class="popup__input popup__input_type_job" placeholder="Описание" value="Исследователь океана" contenteditable="true" minlength="2" maxlength="200" required>
                         <span id="description-error" class="error"></span>
                         <button type="submit" class="button button_theme_save" value="Сохранить">Сохранить</button>
                     </form>
-                    <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
+                    <button type="button" class="button button_theme_close button__close-profile" aria-label="Закрыть"></button>
                 </div>
             </div>
             <div class="popup popup_theme_add">
+                <div class="popup__overlay"></div>
                 <div class="popup__content">
                     <h2 class="popup__title">Новое место</h2>
                     <form class="popup__form popup__form-add" name="add-form" novalidate>
@@ -45,16 +47,17 @@
                         <span id="title-error" class="error"></span>
                         <input type="url" id="link" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка" value="" contenteditable="true" required>
                         <span id="link-error" class="error"></span>
-                        <button type="submit" class="button button_theme_save button_invalid" value="Сохранить">Создать</button>
+                        <button type="submit" class="button button_theme_save button__create" value="Сохранить">Создать</button>
                     </form>
-                    <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
+                    <button type="button" class="button button_theme_close button__close-adding" aria-label="Закрыть"></button>
                 </div>
             </div>
             <div class="popup popup_theme_image">
+                <div class="popup__overlay"></div>
                 <div class="popup__image-container">
                     <img src="./images/atlantic-ocean.jpg" alt="" class="popup__image">
                     <h3 class="popup__image-title"></h3>
-                    <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
+                    <button type="button" class="button button_theme_close button__close-image" aria-label="Закрыть"></button>
                 </div>
             </div>
             <section class="photos">
@@ -67,50 +70,10 @@
         </footer>
         <template id="photos__template">
             <li class="photos__card">
-                <img src="./images/atlantic-ocean.jpg" alt="" class="photos__item">
+                <img src="#" alt="" class="photos__item">
                 <button type="button" class="button button_theme_delete"></button>
                 <div class="photos__like-container">
-                    <h3 class="photos__title">Атлантический океан</h3>
-                    <button class="button button_theme_like" aria-label="Лайк"></button>
-                </div>
-            </li>
-            <li class="photos__card">
-                <img src="./images/jeanne-darc-ship.jpg" alt="Корабль Жанна д'Арк" class="photos__item">
-                <button type="button" class="button button_theme_delete"></button>
-                <div class="photos__like-container">
-                    <h3 class="photos__title">Корабль Жанна д'Арк</h3>
-                    <button class="button button_theme_like" aria-label="Лайк"></button>
-                </div>
-            </li>
-            <li class="photos__card">
-                <img src="./images/antarctica.jpg" alt="Антарктида" class="photos__item">
-                <button type="button" class="button button_theme_delete"></button>
-                <div class="photos__like-container">
-                    <h3 class="photos__title">Антарктида</h3>
-                    <button class="button button_theme_like" aria-label="Лайк"></button>
-                </div>
-            </li>
-            <li class="photos__card">
-                <img src="./images/amazon-river.jpg" alt="Амазонка" class="photos__item">
-                <button type="button" class="button button_theme_delete"></button>
-                <div class="photos__like-container">
-                    <h3 class="photos__title">Амазонка</h3>
-                    <button class="button button_theme_like" aria-label="Лайк"></button>
-                </div>
-            </li>
-            <li class="photos__card">
-                <img src="./images/new-york.jpg" alt="Нью-Йорк" class="photos__item">
-                <button type="button" class="button button_theme_delete"></button>
-                <div class="photos__like-container">
-                    <h3 class="photos__title">Нью-Йорк</h3>
-                    <button class="button button_theme_like" aria-label="Лайк"></button>
-                </div>
-            </li>
-            <li class="photos__card">
-                <img src="./images/saint-andre.jpg" alt="Сент-Андре-Де-Кюбзак" class="photos__item">
-                <button type="button" class="button button_theme_delete"></button>
-                <div class="photos__like-container">
-                    <h3 class="photos__title">Сент-Андре-Де-Кюбзак</h3>
+                    <h3 class="photos__title"></h3>
                     <button class="button button_theme_like" aria-label="Лайк"></button>
                 </div>
             </li>
