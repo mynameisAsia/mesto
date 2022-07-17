@@ -17,6 +17,8 @@ const cardsTemplate = document.querySelector('#photos__template').content;
 const list = document.querySelector('.photos__list');
 const photoItem = document.querySelector('.popup__image');
 const photoTitle = document.querySelector('.popup__image-title');
+const contentOfPopups = document.querySelectorAll('.popup__content');
+const buttonElements = Array.from(document.querySelectorAll('.button_theme_save'));
 
 const createCard = (link, name) => {
   const newCard = cardsTemplate.querySelector('.photos__card').cloneNode(true);
@@ -50,13 +52,26 @@ initialCards.forEach(function(element) {
 });
 
 const openPopup = (popup) => {
-  popup.classList.add('popup_opened')
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', handleEscClose);
 }
 
 const closePopup = () => {
   for (const popUp of popUps) {
     popUp.classList.remove('popup_opened');
+    popUp.addEventListener('click', closePopup);
+    document.removeEventListener('keydown', handleEscClose);
   }
+  for (contentOfPopup of contentOfPopups) {
+    contentOfPopup.addEventListener('click', (evt) => {
+      evt.stopPropagation();
+    })}
+}
+
+function handleEscClose (evt) {
+  if (evt.key === 'Escape') {
+  closePopup(document.querySelector('.popup_opened'));
+}
 }
 
 const handleEditPopup = () => {
@@ -66,6 +81,10 @@ const handleEditPopup = () => {
 }
 
 const handleAddPopup = () => {
+  buttonElements.forEach((buttonElement) => {
+    buttonElement.classList.add('button_invalid');
+    buttonElement.setAttribute('disabled', '');
+  })
   openPopup(popupAddPhoto);
 }
 
@@ -104,8 +123,8 @@ function handleAddFormSubmit(evt) {
   const newPhotoTitle = photoTitleInput.value;
   const newCard = createCard(newPhotoItem, newPhotoTitle);
   list.prepend(newCard);
-  formAddElement.reset();
   closePopup(popupAddPhoto);
+  formAddElement.reset();
 }
 
 formAddElement.addEventListener('submit', handleAddFormSubmit);

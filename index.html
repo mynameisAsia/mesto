@@ -28,8 +28,10 @@
                 <div class="popup__content">
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <form class="popup__form" name="edit-form">
-                        <input type="text" id="name" name="firstname" class="popup__input popup__input_type_firstname" placeholder="Имя" value="Жак-Ив Кусто" contenteditable="true">
-                        <input type="text" id="description" name="description" class="popup__input popup__input_type_job" placeholder="Описание" value="Исследователь океана" contenteditable="true">
+                        <input type="text" id="name" name="firstname" class="popup__input popup__input_type_firstname" placeholder="Имя" value="Жак-Ив Кусто" contenteditable="true" minlength="2" maxlength="40" required>
+                        <span id="name-error" class="error"></span>
+                        <input type="text" id="description" name="description" class="popup__input popup__input_type_job" placeholder="Описание" value="Исследователь океана" contenteditable="true" minlength="2" maxlength="200" required>
+                        <span id="description-error" class="error"></span>
                         <button type="submit" class="button button_theme_save" value="Сохранить">Сохранить</button>
                     </form>
                     <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
@@ -38,10 +40,12 @@
             <div class="popup popup_theme_add">
                 <div class="popup__content">
                     <h2 class="popup__title">Новое место</h2>
-                    <form class="popup__form-add" name="add-form">
-                        <input type="text" id="title" name="title" class="popup__input popup__input_type_name" placeholder="Название" value="" contenteditable="true">
-                        <input type="text" id="link" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка" value="" contenteditable="true">
-                        <button type="submit" class="button button_theme_save" value="Сохранить">Создать</button>
+                    <form class="popup__form popup__form-add" name="add-form" novalidate>
+                        <input type="text" id="title" name="title" class="popup__input popup__input_type_name" placeholder="Название" value="" contenteditable="true" minlength="2" maxlength="30" required>
+                        <span id="title-error" class="error"></span>
+                        <input type="url" id="link" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка" value="" contenteditable="true" required>
+                        <span id="link-error" class="error"></span>
+                        <button type="submit" class="button button_theme_save button_invalid" value="Сохранить">Создать</button>
                     </form>
                     <button type="button" class="button button_theme_close" aria-label="Закрыть"></button>
                 </div>
@@ -113,6 +117,7 @@
         </template>
     </div>
 <script src="./scripts/cards.js"></script>
+<script src="./scripts/validate.js"></script>
 <script src="./scripts/index.js"></script>
 </body>
 </html>
