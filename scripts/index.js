@@ -40,14 +40,11 @@ const popupAddCardValidation = new FormValidator(validationObj, popupAddPhoto);
 popupEditProfileValidation.enableValidation();
 popupAddCardValidation.enableValidation();
 
-function loadCards() {
+initialCards.forEach(function(element) {
+  const newCard = new Card(element.name, element.link, '#photos__template', cardObj).createCard();
+  list.prepend(newCard); 
+});
 
-  initialCards.forEach(function(element) {
-    const newCard = new Card(element.name, element.link, '#photos__template', cardObj).createCard();
-    list.prepend(newCard); 
-  });
-}
-loadCards();
 
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');

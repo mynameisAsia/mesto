@@ -35,8 +35,8 @@ class Card {
     }
 
     _handleImagePopup () {
-      this._popupImage.alt = this._newCard.alt;
-      this._popupImage.src = this._newCard.src;
+      this._popupImage.alt = this._newImage.alt;
+      this._popupImage.src = this._newImage.src;
       this._popupContainer.querySelector(this._cardObj.imageTitleSelector).textContent = this._newImage.alt;
       this._popupContainer.classList.add(this._cardObj.popupOpenedClass);
     }
