@@ -1,4 +1,20 @@
-const popUps = document.querySelectorAll('.popup');
+import { Card } from './Card.js';
+import { FormValidator, validationObj } from './FormValidator.js';
+
+const cardObj = {
+  popupOpenedClass: 'popup_opened',
+  imagePopupContainerSelector: '.popup_theme_image',
+  imagePopupSelector: '.popup__image', 
+  imageTitleSelector: '.popup__image-title', 
+  cardSelector: '.photos__card', 
+  photoItemSelector: '.photos__item', 
+  cardTitleSelector: '.photos__title',
+  buttonLikeActive: 'button_active',
+  buttonLikeSelector: '.button_theme_like',
+  buttonDeleteSelector: '.button_theme_delete',
+  buttonClosePopupSelector: '.button_theme_close',
+}
+
 const popupProfileEdit = document.querySelector('.popup_theme_edit');
 const popupAddPhoto = document.querySelector('.popup_theme_add');
 const imagePopup = document.querySelector('.popup_theme_image');
@@ -15,41 +31,23 @@ const profileDescription = document.querySelector('.profile__description');
 const formAddElement = document.querySelector('.popup__form-add')
 const linkInput = document.querySelector('.popup__input_type_link');
 const photoTitleInput = document.querySelector('.popup__input_type_name');
-const cardsTemplate = document.querySelector('#photos__template').content;
 const list = document.querySelector('.photos__list');
-const photoItem = document.querySelector('.popup__image');
-const photoTitle = document.querySelector('.popup__image-title');
-const contentOfPopups = document.querySelectorAll('.popup__content');
 const buttonElement = document.querySelector('.button_theme_save-card');
 
-const createCard = (link, name) => {
-  const newCard = cardsTemplate.querySelector('.photos__card').cloneNode(true);
-  const newImage = newCard.querySelector('.photos__item');
-  const newTitle = newCard.querySelector('.photos__title');
-  newImage.src = link;
-  newImage.alt = name;
-  newTitle.textContent = name;
+const popupEditProfileValidation = new FormValidator(validationObj, popupProfileEdit);
+const popupAddCardValidation = new FormValidator(validationObj, popupAddPhoto);
 
-  const likeBtn = newCard.querySelector('.button_theme_like');
-  likeBtn.addEventListener('click', addLike);
-  
-  const buttonDelete = newCard.querySelector('.button_theme_delete');
-  buttonDelete.addEventListener('click', deletePhoto);
+popupEditProfileValidation.enableValidation();
+popupAddCardValidation.enableValidation();
 
-  newImage.addEventListener('click', () => {
-    handleImagePopup(link, name)
-  } )
+function loadCards() {
 
-  return newCard;
+  initialCards.forEach(function(element) {
+    const newCard = new Card(element.name, element.link, '#photos__template', cardObj).createCard();
+    list.prepend(newCard); 
+  });
 }
-/*
-const renderCard = () => {
-  list.prepend(createCard());
-}*/
-
-initialCards.forEach(function(element) {
-  list.prepend(createCard(element.link, element.name));
-});
+loadCards();
 
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
@@ -89,13 +87,6 @@ const handleAddPopup = () => {
   openPopup(popupAddPhoto);
 }
 
-function handleImagePopup(link, name) {
-  photoItem.src = link;
-  photoItem.alt = name;
-  photoTitle.textContent = name;
-  openPopup(imagePopup);
-}
-
 buttonEdit.addEventListener('click', handleEditPopup);
 buttonAdd.addEventListener('click', handleAddPopup);
 buttonCloseProfile.addEventListener('click', () => { 
@@ -107,14 +98,6 @@ buttonCloseAddForm.addEventListener('click', () => {
 buttonCloseImage.addEventListener('click', () => {
   closePopup(imagePopup);
 });
-
-function addLike(evt) {
-  evt.target.classList.toggle('button_active');
- }
-
-function deletePhoto(evt) {
-  evt.target.closest('.photos__card').remove();
-}
 
 function handleEditFormSubmit (evt) {
     evt.preventDefault();
@@ -129,7 +112,7 @@ function handleAddFormSubmit(evt) {
   evt.preventDefault();
   const newPhotoItem = linkInput.value;
   const newPhotoTitle = photoTitleInput.value;
-  const newCard = createCard(newPhotoItem, newPhotoTitle);
+  const newCard = new Card(newPhotoTitle, newPhotoItem, '#photos__template', cardObj).createCard();
   list.prepend(newCard);
   closePopup(popupAddPhoto);
   formAddElement.reset();
