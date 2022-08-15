@@ -10,6 +10,8 @@ class FormValidator {
   constructor(obj, formElement) {
     this._obj = obj;
     this._formElement = formElement;
+    this._buttonElement = this._formElement.querySelector(this._obj.submitButtonSelector);
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._obj.inputSelector));
   }
   
   _showInputError (input) {
@@ -50,7 +52,7 @@ class FormValidator {
   }
 
   _checkButtonStatus () {
-    this._buttonElement = this._formElement.querySelector(this._obj.submitButtonSelector);
+    
     if (this._checkFormValidity()) {
       
       this._buttonElement.setAttribute('disabled', true);
@@ -63,7 +65,6 @@ class FormValidator {
   }
 
   _setEventListeners () {
-    this._inputList = Array.from(this._formElement.querySelectorAll(this._obj.inputSelector));
     this._inputList.forEach((input) => {
       input.addEventListener('input', () => {
         this._checkInputValidity(input);
