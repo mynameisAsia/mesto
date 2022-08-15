@@ -51,7 +51,7 @@ class FormValidator {
     });
   }
 
-  _checkButtonStatus () {
+  checkButtonStatus () {
     
     if (this._checkFormValidity()) {
       
@@ -64,18 +64,27 @@ class FormValidator {
     }
   }
 
+  resetValidation() {
+    this._buttonElement.setAttribute('disabled', true);
+    this._buttonElement.classList.add(this._obj.inactiveButtonClass); // при использовании this.checkButtonStatus(); кнопка активировалась во второй раз открытия формы добавления карточки, и давала создать пустую карточку, а в третий раз работала корректно, поэтому решила вставить код из функции на проверку кнопки :(
+
+    this._inputList.forEach((input) => {
+      this._hideInputError(input);
+    });
+  } 
+
   _setEventListeners () {
     this._inputList.forEach((input) => {
       input.addEventListener('input', () => {
         this._checkInputValidity(input);
-        this._checkButtonStatus();
+        this.checkButtonStatus();
       });
     });
   }
 
   enableValidation () {
     this._setEventListeners();
-    this._checkButtonStatus();
+    this.checkButtonStatus();
   }
 
 }

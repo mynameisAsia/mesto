@@ -96,6 +96,8 @@ const handleEditPopup = () => {
 
 const handleAddPopup = () => {
   openPopup(popupAddPhoto);
+  popupAddCardValidation.resetValidation();
+  formAddElement.reset();
 }
 
 buttonEdit.addEventListener('click', handleEditPopup);
@@ -124,7 +126,7 @@ function handleAddFormSubmit(evt) {
   const data = { name: photoTitleInput.value, link: linkInput.value };
   list.prepend(createCard(data));
   closePopup(popupAddPhoto);
-  formAddElement.reset();
+  popupAddCardValidation.checkButtonStatus();
 }
 
 formAddElement.addEventListener('submit', handleAddFormSubmit);

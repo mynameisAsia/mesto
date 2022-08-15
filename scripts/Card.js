@@ -20,8 +20,6 @@ class Card {
       const cardSelector = this._cardObj.cardSelector;
       this._buttonDelete.closest(cardSelector).remove();
     }
-
-    
   
     _setEventListeners () {
       this._likeBtn.addEventListener('click', () => {
@@ -31,10 +29,6 @@ class Card {
       this._buttonDelete.addEventListener('click', () => {
         this._deletePhoto();
       });
-  
-      this._newImage.addEventListener('click', () => { 
-        this._handleImagePopup();
-      })
 
       this._newImage.addEventListener('click', () => {
         this._handleCardClick(this._name, this._link)
