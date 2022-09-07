@@ -5,8 +5,6 @@ import {
   popupProfileEdit,
   popupAddPhoto,
   imagePopup,
-  imagePopupSelector,
-  imageTitleSelector,
   formAddElement,
   nameInput,
   jobInput,
