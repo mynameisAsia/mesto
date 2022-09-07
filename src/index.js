@@ -24,17 +24,17 @@ import UserInfo from './scripts/UserInfo.js';
 
 const user = new UserInfo ({name: profileName, description: profileDescription});
 
-const openImagePopup = new PopupWithImage (imagePopup);
+const popupImage = new PopupWithImage (imagePopup);
 
-const profileForm = new PopupWithForm ({popupSelector: popupProfileEdit, submitForm: (data) => {
+const popupProfile = new PopupWithForm ({popupSelector: popupProfileEdit, submitForm: (data) => {
   user.setUserInfo(data);
-  profileForm.close();
+  popupProfile.close();
 } });
 
-const addForm = new PopupWithForm ({popupSelector: popupAddPhoto, submitForm: (data) => {
+const popupAddCard = new PopupWithForm ({popupSelector: popupAddPhoto, submitForm: (data) => {
   const cardElement = createCard(data);
   cardsList.addItem(cardElement);
-  addForm.close();
+  popupAddCard.close();
 }});
 
 const cardsList = new Section (
@@ -52,9 +52,9 @@ const popupAddCardValidation = new FormValidator(validationObj, popupAddPhoto);
 popupEditProfileValidation.enableValidation();
 popupAddCardValidation.enableValidation();
 
-profileForm.setEventListeners();
-addForm.setEventListeners();
-openImagePopup.setEventListeners();
+popupProfile.setEventListeners();
+popupAddCard.setEventListeners();
+popupImage.setEventListeners();
 
 function createCard(data) {
   const card = new Card(data, '#photos__template', handleCardClick);
@@ -67,19 +67,16 @@ function addNewCard (data) {
 }
 
 function handleCardClick (title, link) {
-  imagePopupSelector.alt = title;
-  imagePopupSelector.src = link; 
-  imageTitleSelector.textContent = title;
-  openImagePopup.open({title, link});
+  popupImage.open({title, link});
 }
 
 buttonEdit.addEventListener('click', function () {
   setUserInputs(user.getUserInfo());
-  profileForm.open();
+  popupProfile.open();
 });
 
 buttonAdd.addEventListener('click', function () {
-  addForm.open();
+  popupAddCard.open();
   popupAddCardValidation.resetValidation();
   formAddElement.reset();
 });

@@ -30,7 +30,7 @@ export default class Popup {
             this.close();
         } );
 
-        popupOverlay.addEventListener('click', () => {
+        popupOverlay.addEventListener('mousedown', () => {
           this.close();
         })
     }
