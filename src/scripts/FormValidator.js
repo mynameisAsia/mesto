@@ -7,9 +7,9 @@ export default class FormValidator {
   }
   
   _showInputError (input) {
-    this._editErrorMessage(input)
+    this._editErrorMessage(input);
     this._errorElement = this._formElement.querySelector(`#${input.id}-error`);
-    this._errorElement.textContent = input.validationMessage; 
+    this._errorElement.textContent = input.validationMessage;
   }
 
   _editErrorMessage(input) {
@@ -58,7 +58,7 @@ export default class FormValidator {
 
   resetValidation() {
     this._buttonElement.setAttribute('disabled', true);
-    this._buttonElement.classList.add(this._obj.inactiveButtonClass); // при использовании this.checkButtonStatus(); кнопка активировалась во второй раз открытия формы добавления карточки, и давала создать пустую карточку, а в третий раз работала корректно, поэтому решила вставить код из функции на проверку кнопки :(
+    this._buttonElement.classList.add(this._obj.inactiveButtonClass);
 
     this._inputList.forEach((input) => {
       this._hideInputError(input);

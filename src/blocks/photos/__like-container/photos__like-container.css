@@ -1,6 +1,5 @@
 .photos__like-container {
-    margin: 0 auto;
-    width: 241px;
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
