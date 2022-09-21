@@ -1,5 +1,7 @@
 .button_theme_like {
     background-image: url(../../../images/like.svg);
+    background-size: contain;
+    background-color: transparent;
     align-self: center;
     width: 24px;
     height: 21px;
