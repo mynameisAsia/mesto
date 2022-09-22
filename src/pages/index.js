@@ -1,29 +1,24 @@
-import './pages/index.css';
+import './index.css';
 import {
   validationObj,
   popupProfileEdit,
   popupAddPhoto,
   popupUpdateAvatar,
-  popupConfirmDelete,
-  imagePopup,
   formAddElement,
   nameInput,
   jobInput,
-  profileName,
-  profileDescription,
-  avatar,
   buttonEdit,
   buttonUpdateAvatar,
   buttonAdd
-} from './utils/constants.js'
-import Card from './scripts/Card.js';
-import FormValidator from './scripts/FormValidator.js';
-import Section from './scripts/Section.js';
-import PopupWithForm from './scripts/PopupWithForm.js';
-import PopupWithImage from './scripts/PopupWithImage.js';
-import UserInfo from './scripts/UserInfo.js';
-import Api from './scripts/Api.js';
-import PopupWithConfirmation from './scripts/PopupWithConfirmation';
+} from '../utils/constants.js'
+import Card from '../scripts/Card.js';
+import FormValidator from '../scripts/FormValidator.js';
+import Section from '../scripts/Section.js';
+import PopupWithForm from '../scripts/PopupWithForm.js';
+import PopupWithImage from '../scripts/PopupWithImage.js';
+import UserInfo from '../scripts/UserInfo.js';
+import Api from '../scripts/Api.js';
+import PopupWithConfirmation from '../scripts/PopupWithConfirmation';
 
 const api = new Api ({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-50',
@@ -56,15 +51,18 @@ const cardsList = new Section (
     }
   }, '.photos__list');
 
-const user = new UserInfo ({name: profileName, about: profileDescription, avatar: avatar});
+const user = new UserInfo ({ 
+  name: '.profile__name', 
+  about: '.profile__description', 
+  avatar: '.profile__avatar'});
 
-const popupImage = new PopupWithImage (imagePopup);
+const popupImage = new PopupWithImage ('.popup_theme_image');
 
-const popupProfile = new PopupWithForm ({popupSelector: popupProfileEdit, submitForm: (data) => {
+const popupProfile = new PopupWithForm ({popupSelector: '.popup_theme_edit', submitForm: (data) => {
   popupProfile.renderLoading(true);
-  api.updateUserInfo({name: data.name, about: data.about})
+  api.updateUserInfo(data)
     .then((data) => {
-      user.setUserInfo({name: data.name, about: data.about, avatar: data.avatar});
+      user.setUserInfo(data);
       popupProfile.close();
     })
     .catch((err) => {
@@ -75,7 +73,7 @@ const popupProfile = new PopupWithForm ({popupSelector: popupProfileEdit, submit
     })
 } });
 
-const popupAddCard = new PopupWithForm ({popupSelector: popupAddPhoto, submitForm: (data) => {
+const popupAddCard = new PopupWithForm ({popupSelector: '.popup_theme_add', submitForm: (data) => {
   popupAddCard.renderLoading(true);
   api.addNewCard(data)
     .then((cardData) => {
@@ -91,7 +89,7 @@ const popupAddCard = new PopupWithForm ({popupSelector: popupAddPhoto, submitFor
     })
 }});
 
-const popupDeleteConfirmation = new PopupWithConfirmation ({popupSelector: popupConfirmDelete, submitForm: (element, cardId) => {
+const popupDeleteConfirmation = new PopupWithConfirmation ({popupSelector: '.popup_theme_confirm', submitForm: (element, cardId) => {
   api.deleteCard(cardId)
     .then(() => {
       element.deleteCard();
@@ -103,9 +101,9 @@ const popupDeleteConfirmation = new PopupWithConfirmation ({popupSelector: popup
   }
 });
 
-const popupChangeAvatar = new PopupWithForm ({popupSelector: popupUpdateAvatar, submitForm: (data) => {
+const popupChangeAvatar = new PopupWithForm ({popupSelector: '.popup_theme_avatar', submitForm: (data) => {
   popupChangeAvatar.renderLoading(true);
-  api.changeAvatar({avatar: data.avatar})
+  api.changeAvatar(data)
     .then((data) => {
       user.setUserInfo({avatar: data.avatar, name: data.name, about: data.about});
       popupChangeAvatar.close();
@@ -153,7 +151,7 @@ function createCard(data) {
     },
     handleDeleteClick: (element, cardId) => {
       popupDeleteConfirmation.open(card);
-      popupDeleteConfirmation.getCard(element, cardId);
+      popupDeleteConfirmation.setCard(element, cardId);
     }
     }, '#photos__template');
   
@@ -188,4 +186,5 @@ buttonAdd.addEventListener('click', function () {
 
 buttonUpdateAvatar.addEventListener('click', function () {
   popupChangeAvatar.open();
+  popupEditAvatarValidation.resetValidation();
 });

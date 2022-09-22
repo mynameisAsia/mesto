@@ -7,21 +7,8 @@ export default class FormValidator {
   }
   
   _showInputError (input) {
-    this._editErrorMessage(input);
     this._errorElement = this._formElement.querySelector(`#${input.id}-error`);
     this._errorElement.textContent = input.validationMessage;
-  }
-
-  _editErrorMessage(input) {
-    input.setCustomValidity('');
-
-    if (input.validity.valueMissing) {
-      input.setCustomValidity('Вы пропустили это поле.');
-    }
-
-    if (input.validity.typeMismatch && input.type === 'url') {
-      input.setCustomValidity('Введите адрес сайта.');
-    }
   }
 
   _hideInputError (input) {
@@ -43,23 +30,23 @@ export default class FormValidator {
     });
   }
 
+  _setDisabledAttribute() {
+    this._buttonElement.setAttribute('disabled', true);
+    this._buttonElement.classList.add(this._obj.inactiveButtonClass);
+  }
+
   checkButtonStatus () {
     
     if (this._checkFormValidity()) {
-      
-      this._buttonElement.setAttribute('disabled', true);
-      this._buttonElement.classList.add(this._obj.inactiveButtonClass);
+      this._setDisabledAttribute();
     } else {
-      
       this._buttonElement.removeAttribute('disabled');
       this._buttonElement.classList.remove(this._obj.inactiveButtonClass);
     }
   }
 
   resetValidation() {
-    this._buttonElement.setAttribute('disabled', true);
-    this._buttonElement.classList.add(this._obj.inactiveButtonClass);
-
+    this._setDisabledAttribute();
     this._inputList.forEach((input) => {
       this._hideInputError(input);
     });
